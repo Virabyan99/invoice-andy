@@ -15,6 +15,7 @@ interface iAppProps {
 }
 
 const Graph = ({data}: iAppProps) => {
+  
   return (
     <ChartContainer
       config={{

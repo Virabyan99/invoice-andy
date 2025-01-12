@@ -60,7 +60,7 @@ async function getInvoices(userId: string) {
 const InvoiceGraph = async () => {
   const session = await requireUser()
   const data = await getInvoices(session.user?.id as string)
-
+  console.log(data)
   return (
     <Card className="lg:col-span-2">
       <CardHeader>
