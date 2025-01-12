@@ -13,6 +13,7 @@ import Link from 'next/link'
 export default function Verify() {
   return (
     <div className="flex items-center min-h-screen w-full justify-center">
+      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       <Card className="w-[380px] px-5 ">
         <CardHeader className="text-center ">
           <div className=" mb-4 mx-auto flex size-20 items-center justify-center rounded-full bg-blue-100">
