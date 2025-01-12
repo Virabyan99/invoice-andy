@@ -94,10 +94,12 @@ export async function createInvoice(prevState: any, formData: FormData) {
         amount: submission.value.total,
         currency: submission.value.currency as any,
       }),
-      invoiceLink:
-        process.env.NODE_ENV !== 'production'
-          ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
-          : `http://localhost:3000/api/invoice/${data.id}`,
+      // invoiceLink:
+      //   process.env.NODE_ENV !== 'production'
+      //     ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
+      //     : `http://localhost:3000/api/invoice/${data.id}`,
+      invoiceLink: `https://invoice-andy.vercel.app/api/invoice/${data.id}`
+
     },
   })
 
@@ -164,10 +166,10 @@ export async function editInvoice(prevState: any, formData: FormData) {
         amount: submission.value.total,
         currency: submission.value.currency as any,
       }),
-      invoiceLink:
-        process.env.NODE_ENV !== 'production'
-          ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
-          : `http://localhost:3000/api/invoice/${data.id}`,
+      // process.env.NODE_ENV !== 'production'
+      //   ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
+      //   : `http://localhost:3000/api/invoice/${data.id}`,
+      invoiceLink: `https://invoice-andy.vercel.app/api/invoice/${data.id}`
     },
   })
 
