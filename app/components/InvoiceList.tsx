@@ -61,7 +61,7 @@ const InvoiceList = async () => {
               })}
             </TableCell>
             <TableCell>
-              <Badge>{invoice.status}</Badge>
+              <Badge className='font-normal'>{invoice.status}</Badge>
             </TableCell>
             <TableCell>
               {new Intl.DateTimeFormat('en-US', {
@@ -69,7 +69,7 @@ const InvoiceList = async () => {
               }).format(invoice.createdAt)}
             </TableCell>
             <TableCell className="text-right">
-              <InvoiceActions />
+              <InvoiceActions status={invoice.status} id={invoice.id} />
             </TableCell>
           </TableRow>
         ))}
