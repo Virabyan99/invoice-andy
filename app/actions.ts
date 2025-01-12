@@ -94,7 +94,10 @@ export async function createInvoice(prevState: any, formData: FormData) {
         amount: submission.value.total,
         currency: submission.value.currency as any,
       }),
-      invoiceLink: `http://localhost:3000/api/invoice/${data.id}`,
+      invoiceLink:
+        process.env.NODE_ENV !== 'production'
+          ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
+          : `http://localhost:3000/api/invoice/${data.id}`,
     },
   })
 
@@ -161,7 +164,10 @@ export async function editInvoice(prevState: any, formData: FormData) {
         amount: submission.value.total,
         currency: submission.value.currency as any,
       }),
-      invoiceLink: `http://localhost:3000/api/invoice/${data.id}`,
+      invoiceLink:
+        process.env.NODE_ENV !== 'production'
+          ? `https://invoice-andy.vercel.app/api/invoice/${data.id}`
+          : `http://localhost:3000/api/invoice/${data.id}`,
     },
   })
 
@@ -174,10 +180,10 @@ export async function deleteInvoice(invoiceId: string) {
   const data = await prisma.invoice.delete({
     where: {
       userId: session.user?.id as string,
-      id: invoiceId
-    }
+      id: invoiceId,
+    },
   })
-  return redirect("/dashboard/invoices");
+  return redirect('/dashboard/invoices')
 }
 
 export async function markAsPaid(invoiceId: string) {
@@ -186,14 +192,11 @@ export async function markAsPaid(invoiceId: string) {
   const data = await prisma.invoice.update({
     where: {
       userId: session.user?.id as string,
-      id: invoiceId
+      id: invoiceId,
     },
     data: {
-      status: "PAID"
-    }
+      status: 'PAID',
+    },
   })
-  return redirect("/dashboard/invoices");
+  return redirect('/dashboard/invoices')
 }
-
-
-
